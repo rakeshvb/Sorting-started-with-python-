@@ -1,0 +1,33 @@
+public class Solution {
+    public int maxProduct(String[] words) {
+        int max=0;
+        
+        for(int i=0;i<words.length;i++)
+        for(int j=0;j<words.length;j++)
+        {
+            String res=words[i];
+            String res1=words[j];
+            boolean flag=iscommom(res,res1);
+            if(!flag)
+            {   
+                int r=res.length()*res1.length();
+                if(r>max)
+                max=r;
+            }
+        }
+        return max;
+    }
+    public static boolean iscommom(String s1,String s2)
+    {
+        String x1=s1;
+        String x2=s2;
+        for(int i=0;i<x1.length();i++){  
+            for(int j=0;j<x2.length();j++){  
+                if(x1.charAt(i)==x2.charAt(j))
+                    return true;
+            }
+        }
+        return false;
+    }
+    
+}
